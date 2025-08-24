@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hydration Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1 style="text-align:center; margin-top:30px; color:#0077cc;">🩺 My Daily Health Dashboard</h1>
+    <div class="container">
+        <h1>💧 Hydration Tracker</h1>
+        <p>Goal: <span id="goal">2000</span> ml</p>
+        <p>Consumed: <span id="consumed">0</span> ml</p>
+        <div class="progress-bar">
+            <div id="progress-fill"></div>
+        </div>
+        <button onclick="addWater(250)">+250ml</button>
+        <button onclick="addWater(500)">+500ml</button>
+        <!-- Steps Tracker Section -->
+        <section>
+           <h2>🚶 Steps Tracker</h2>
+           <p>Goal: <span id="step-goal">5000</span> steps</p>
+           <p>Walked: <span id="steps-walked">0</span> steps</p>
+           <div class="progress-bar">
+               <div id="steps-fill"></div>
+           </div
+           <button onclick="addSteps(1000)">+1000 steps</button>
+           <button onclick="addSteps(500)">+500 steps</button>
+        </section>
+        <!-- Nutrition Tips Section -->
+        <section>
+            <h2>🍽️ Nutrition Tips</h2>
+            <select id="goal-select" onchange="showTips()">
+                <option value="">Select your goal</option>
+                <option value="energy">Boost Energy</option>
+                <option value="weight-loss">Weight Loss</option>
+                <option value="focus">Improve Focus</option>
+            </select>
+            <div id="nutrition-tips"></div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/tracker.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/steps.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/nutrition.js') }}"></script>
+</body>
+</html>
